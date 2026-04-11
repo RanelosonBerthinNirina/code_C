@@ -61,8 +61,12 @@ unsigned bin_to_decimal(const char *bin){
     }
 	return decimal;
 }
-int main(int argc, char const *argv[]){
-        printf("%d",bin_to_decimal("001000"));   
-    return 0;
+unsigned bin_to_decimal1(const char *bin)
+{
+  return strtol(bin, 0, 2);
 }
 
+int main(int argc, char const *argv[]){
+    
+    return 0;
+}
