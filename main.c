@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stddef.h>
 #include <math.h>
 char *smash (const char *const words[/* count */], size_t count){
     char* cible=malloc(sizeof(char));
@@ -61,12 +62,33 @@ unsigned bin_to_decimal(const char *bin){
     }
 	return decimal;
 }
-unsigned bin_to_decimal1(const char *bin)
-{
+unsigned bin_to_decimal1(const char *bin){
   return strtol(bin, 0, 2);
 }
 
-int main(int argc, char const *argv[]){
+int compare(const void* a,const void* b) {
+  	return *(int*)a - *(int*)b;
+}
+bool comp(const int a[/*n*/], const int b[/*n*/], size_t n){
+    if(a==NULL || b ==NULL)
+        return false;
     
+}
+int main(int argc, char const *argv[]){
+  	size_t n=4;
+	const int arr[4] = {-2, -3, 9, 11};
+    const int b[4]={121,81,4,9};
+
+    int *array = malloc(sizeof(int)* n);
+    for (size_t i = 0; i < n; i++){
+        array[i]=abs(arr[i]);
+    }
+  	qsort(array, n-1, sizeof(int), compare);
+
+    for (size_t i = 0; i < n; i++) {
+        
+    }
+    // printf("ao");
+    free(array);
     return 0;
 }
