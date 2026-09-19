@@ -74,21 +74,39 @@ bool comp(const int a[/*n*/], const int b[/*n*/], size_t n){
         return false;
     
 }
-int main(int argc, char const *argv[]){
-  	size_t n=4;
-	const int arr[4] = {-2, -3, 9, 11};
-    const int b[4]={121,81,4,9};
 
-    int *array = malloc(sizeof(int)* n);
-    for (size_t i = 0; i < n; i++){
-        array[i]=abs(arr[i]);
+char *name_shuffler (char *shuffled, const char *name){
+// write to shuffled and return it
+// it has room for strlen(name) + 1 bytes | do_test("john McClane", "McClane john");
+    char buffer[50];
+	shuffled = malloc(sizeof(char) * (strlen(name) + 1));
+    char *first=malloc(sizeof(char) * (strlen(name) ));
+    char *last=malloc(sizeof(char) * (strlen(name) ));
+    size_t i = 0,x=0;
+    while (1){
+        if(name[i]==' '){
+            i++;    
+            break;
+        }
+        first[i]=name[i];
+        i++;
     }
-  	qsort(array, n-1, sizeof(int), compare);
-
-    for (size_t i = 0; i < n; i++) {
-        
-    }
-    // printf("ao");
-    free(array);
-    return 0;
+    while (name[i]!='\0'){
+        last[x]=name[i];
+        x++,i++;
+    }    
+    snprintf(buffer,sizeof(buffer),"%s %s",last, first);
+    strcpy(shuffled,buffer);
+    return shuffled;
+    free(first);
+    free(last);
 }
+int valeur_via_adresse(int* w){
+    return *w;
+}
+
+int main(int argc, char const *argv[]){    
+    
+    
+    return 0;
+}   
